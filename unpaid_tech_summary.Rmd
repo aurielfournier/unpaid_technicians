@@ -16,10 +16,12 @@ BirdJobs (last updated December 3, 2015)
 ```{r}
 library(ggplot2)
 library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(reshape)
 jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
 
+
 ggplot()+
-  geom_bar(data=jobs, aes(x=month, y=percentage, fill=type), stat="identity")
+  geom_bar(data=jobs, aes(x=month, y=percentage, fill=type, group=employer), stat="identity")
 ```
 
 
