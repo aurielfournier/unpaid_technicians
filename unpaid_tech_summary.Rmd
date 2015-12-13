@@ -8,9 +8,45 @@ As of ```date()``` this repo and file are still being constructed. Our end goal 
 
 Job boards:
 
-Texas A&M (last updated August 2015)
-BirdJobs (last updated December 3, 2015)
+(Texas A&M)[http://wfscjobs.tamu.edu/job-board/] (last updated August 2015)
+(BirdJobs)[https://www.osnabirds.org/Jobs.aspx] (last updated December 3, 2015)
+(Conservation Job Board)[http://www.conservationjobboard.com/] (last updated December 3, 2015)
+(The Wildlife Society Job Board)[http://careers.wildlife.org/home/index.cfm?site_id=8764] (last updated December 3, 2015)
 
+If you would like to contribute data from another job board just let Alex or Auriel know. 
+
+
+# original data from editorial
+
+```{r}
+library(ggplot2)
+library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(reshape)
+library(RColorBrewer)
+
+jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
+
+jobs <- jobs[is.na(jobs$job_board),]
+
+col4 <- brewer.pal(4,"Dark2")
+
+ggplot()+
+  geom_bar(data=jobs, aes(x=month, y=percentage, fill=type), stat="identity")+
+  scale_fill_manual(values=col4)+theme_krementz()
+```
+
+# Continued Data Collection
+
+Alex and I will continue collecting data from job boards to document the occurence of differnt kinds of seasonal technician jobs. 
+
+We categorize them into four groups
+
+paid = paid >= $300/month with housing (this in some areas will be close to minimum wage)
+unpaid = paid <= $300/month with housing
+pay to work = a position that is unpaid and the technician has to pay to 'work' for the project
+unclear = it is not clear from the job positing if the job is paid or unpaid
+
+This summary includes only season technician level positions. Not full time permanent jobs, or jobs requiring a graduate level degree. Though we have seen some of those being unpaid as well. 
 
 
 ```{r}
@@ -19,15 +55,84 @@ library(auriel) #Auriel's personal R package https://github.com/aurielfournier/r
 library(reshape)
 jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
 
+mjobs <- melt(jobs[,c("month","count","type")], id=c("month","type"))
+
+cjobs <- cast(mjobs, month + type ~ variable, sum, na.rm=TRUE)
+
+months <- unique(cjobs$month)
+
+cjobs$percentage <- NA
+
+for(i in seq(1,nrow(cjobs)-3,by=4)){
+  print(i)
+  total <- sum(cjobs[i:(i+3),"count"])
+  for(j in 0:3){
+    cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
+  }
+}
 
 ggplot()+
-  geom_bar(data=jobs, aes(x=month, y=percentage, fill=type, group=employer), stat="identity")
+  geom_bar(data=cjobs, aes(x=month, y=percentage, fill=type), stat="identity")+
+  scale_fill_manual(values=col4)+
+  theme_krementz()
 ```
 
+starting in November 2015 we began to break down our summary by employer as well. 
 
-paid = paid > $300 USD/month
-unpaid = paid < $300 USD/month
-pay_to_work = technician pays them to 'work' 
-unclear = no mention of salary was made or 'based on experience' or other such text were used
+```{r}
+library(ggplot2)
+library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(reshape)
+jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
 
-This summary includes only season technician level positions. Not full time permanent jobs, or jobs requiring a graduate level degree. Though we have seen some of those being unpaid as well. 
+jobs <- jobs[!is.na(jobs$employer),]  # removing the entries from August 2015 which were not broken down by employer
+
+mjobs <- melt(jobs[,c("employer","count","type")], id=c("employer","type"))
+
+cjobs <- cast(mjobs, employer + type ~ variable, sum, na.rm=TRUE)
+
+cjobs$percentage <- NA
+
+for(i in seq(1,nrow(cjobs)-3,by=4)){
+  print(i)
+  total <- sum(cjobs[i:(i+3),"count"])
+  for(j in 0:3){
+    cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
+  }
+}
+
+ggplot()+
+  geom_bar(data=cjobs, aes(x=employer, y=percentage, fill=type), stat="identity")+
+  scale_fill_manual(values=col4)+
+  theme_krementz()
+```
+
+As of November 2015 we are now keeping track of which job board these data come from as well. 
+
+```{r}
+library(ggplot2)
+library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(reshape)
+jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
+
+jobs <- jobs[!is.na(jobs$job_board),]  # removing the entries from August 2015 which were not broken down by employer
+
+mjobs <- melt(jobs[,c("job_board","count","type")], id=c("job_board","type"))
+
+cjobs <- cast(mjobs, job_board + type ~ variable, sum, na.rm=TRUE)
+
+cjobs$percentage <- NA
+
+for(i in seq(1,nrow(cjobs)-3,by=4)){
+  print(i)
+  total <- sum(cjobs[i:(i+3),"count"])
+  for(j in 0:3){
+    cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
+  }
+}
+
+ggplot()+
+  geom_bar(data=cjobs, aes(x=job_board, y=percentage, fill=type), stat="identity")+
+  scale_fill_manual(values=col4)+
+  theme_krementz()
+```
