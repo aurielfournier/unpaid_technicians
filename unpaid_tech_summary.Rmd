@@ -17,16 +17,21 @@ Job boards:
 
 If you would like to contribute data from another job board just let Alex or Auriel know. 
 
+```{r, results='hide'}
+# Install the `auriel` package
+library(devtools)
+install_github("aurielfournier/auriel")
+```
 
 # original data from editorial
 
 ```{r, results='hide'}
 library(ggplot2)
-library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(auriel)
 library(reshape)
 library(RColorBrewer)
 
-jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
+jobs <- read.csv("./ongoing_collection.csv")
 
 jobs <- jobs[is.na(jobs$job_board),]
 
@@ -36,7 +41,7 @@ a <- ggplot()+
   geom_bar(data=jobs, aes(x=month, y=percentage, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+theme_krementz()
 
-ggsave(a, file="~/unpaid_technicians/figure1_editorial_data.png")
+ggsave(a, file="./figure1_editorial_data.png")
 ```
 
 
@@ -58,9 +63,9 @@ This summary includes only season technician level positions. Not full time perm
 
 ```{r, results="hide"}
 library(ggplot2)
-library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(auriel)
 library(reshape)
-jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
+jobs <- read.csv("./ongoing_collection.csv")
 
 mjobs <- melt(jobs[,c("month","count","type")], id=c("month","type"))
 
@@ -83,7 +88,7 @@ a <- ggplot()+
   scale_fill_manual(values=col4)+
   theme_krementz()
 
-ggsave(a, file="~/unpaid_technicians/figure2_new_by_month.png")
+ggsave(a, file="./figure2_new_by_month.png")
 
 ```
 
@@ -94,9 +99,9 @@ starting in November 2015 we began to break down our summary by employer as well
 
 ```{r}
 library(ggplot2)
-library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(auriel)
 library(reshape)
-jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
+jobs <- read.csv("./ongoing_collection.csv")
 
 jobs <- jobs[!is.na(jobs$employer),]  # removing the entries from August 2015 which were not broken down by employer
 
@@ -119,7 +124,7 @@ a <- ggplot()+
   scale_fill_manual(values=col4)+
   theme_krementz()
 
-ggsave(a, file="~/unpaid_technicians/figure3_new_data_by_employer.png")
+ggsave(a, file="./figure3_new_data_by_employer.png")
 
 ```
 
@@ -132,7 +137,7 @@ As of November 2015 we are now keeping track of which job board these data come 
 library(ggplot2)
 library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
 library(reshape)
-jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
+jobs <- read.csv("./ongoing_collection.csv")
 
 jobs <- jobs[!is.na(jobs$job_board),]  # removing the entries from August 2015 which were not broken down by employer
 
@@ -155,7 +160,7 @@ a <- ggplot()+
   scale_fill_manual(values=col4)+
   theme_krementz()
 
-ggsave(a, file="~/unpaid_technicians/figure4_new_data_by_jobboard.png", width=9)
+ggsave(a, file="./figure4_new_data_by_jobboard.png", width=9)
 ```
 
 
