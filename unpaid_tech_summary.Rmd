@@ -20,7 +20,7 @@ If you would like to contribute data from another job board just let Alex or Aur
 ```{r, results='hide'}
 # Install the `auriel` package
 library(devtools)
-install_github("aurielfournier/auriel")
+install_github("aurielfournier/rel")
 ```
 
 # original data from editorial
