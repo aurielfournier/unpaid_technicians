@@ -14,12 +14,17 @@ Job boards:
 
 If you would like to contribute data from another job board just let Alex or Auriel know. 
 
+```{r, results='hide'}
+# Install the `auriel` package
+library(devtools)
+install_github("aurielfournier/auriel")
+```
 
 # original data from editorial
 
 ```{r, results='hide'}
 library(ggplot2)
-library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(auriel)
 library(reshape)
 library(RColorBrewer)
 
@@ -55,7 +60,7 @@ This summary includes only season technician level positions. Not full time perm
 
 ```{r, results="hide"}
 library(ggplot2)
-library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(auriel)
 library(reshape)
 jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
 
@@ -91,7 +96,7 @@ starting in November 2015 we began to break down our summary by employer as well
 
 ```{r}
 library(ggplot2)
-library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
+library(auriel)
 library(reshape)
 jobs <- read.csv("~/unpaid_technicians/ongoing_collection.csv")
 
