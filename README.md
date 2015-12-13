@@ -10,9 +10,9 @@ To see a summary of our data, updated monthly see [here](https://github.com/auri
 (Texas A&M)[http://wfscjobs.tamu.edu/job-board/] (last updated August 2015)  
 (BirdJobs)[https://www.osnabirds.org/Jobs.aspx] (last updated December 3, 2015)  
 (Conservation Job Board)[http://www.conservationjobboard.com/] (last updated December 3, 2015)  
-(The Wildlife Society Job Board)[http://careers.wildlife.org/home/index.cfm?site_id=8764] (last updated December 3, 2015)
-(Ecolog)[https://listserv.umd.edu/archives/ecolog-l.html] (not yet included, but being collected now)
-(Evoldir)[http://life.mcmaster.ca/cgi-bin/my_wrap/brian/evoldir/Jobs/] (not yet included, but being collected now)
+(The Wildlife Society Job Board)[http://careers.wildlife.org/home/index.cfm?site_id=8764] (last updated December 3, 2015)   
+(Ecolog)[https://listserv.umd.edu/archives/ecolog-l.html] (not yet included, but being collected now)  
+(Evoldir)[http://life.mcmaster.ca/cgi-bin/my_wrap/brian/evoldir/Jobs/] (not yet included, but being collected now)  
 (Conservation Careers)[http://www.conservation-careers.com/job/] (not yet included by being collected now)
 
 ## Questions 
