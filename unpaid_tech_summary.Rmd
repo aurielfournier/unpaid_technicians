@@ -3,7 +3,6 @@ output: html_document
 ---
 
 This is a basic visualization and summary of the data collected by Dr. Alex Bond and Auriel Fournier. 
-
 As of ```date()``` this repo and file are still being constructed. Our end goal is to update this once monthly with summaries of technician positions from the following job boards to look at trends over time and help raise awareness about the frequency of these positions. 
 
 Job boards:
@@ -18,7 +17,7 @@ If you would like to contribute data from another job board just let Alex or Aur
 
 # original data from editorial
 
-```{r}
+```{r, results='hide'}
 library(ggplot2)
 library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
 library(reshape)
@@ -30,10 +29,15 @@ jobs <- jobs[is.na(jobs$job_board),]
 
 col4 <- brewer.pal(4,"Dark2")
 
-ggplot()+
+a <- ggplot()+
   geom_bar(data=jobs, aes(x=month, y=percentage, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+theme_krementz()
+
+ggsave(a, file="~/unpaid_technicians/figure1_editorial_data.png")
 ```
+
+
+![](figure1_editorial_data.png) 
 
 # Continued Data Collection
 
@@ -49,7 +53,7 @@ unclear = it is not clear from the job positing if the job is paid or unpaid
 This summary includes only season technician level positions. Not full time permanent jobs, or jobs requiring a graduate level degree. Though we have seen some of those being unpaid as well. 
 
 
-```{r}
+```{r, results="hide"}
 library(ggplot2)
 library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
 library(reshape)
@@ -64,18 +68,24 @@ months <- unique(cjobs$month)
 cjobs$percentage <- NA
 
 for(i in seq(1,nrow(cjobs)-3,by=4)){
-  print(i)
+  #print(i)
   total <- sum(cjobs[i:(i+3),"count"])
   for(j in 0:3){
     cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
   }
 }
 
-ggplot()+
+a <- ggplot()+
   geom_bar(data=cjobs, aes(x=month, y=percentage, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+
   theme_krementz()
+
+ggsave(a, file="~/unpaid_technicians/figure2_new_by_month.png")
+
 ```
+
+
+![](figure2_new_by_month.png) 
 
 starting in November 2015 we began to break down our summary by employer as well. 
 
@@ -94,18 +104,24 @@ cjobs <- cast(mjobs, employer + type ~ variable, sum, na.rm=TRUE)
 cjobs$percentage <- NA
 
 for(i in seq(1,nrow(cjobs)-3,by=4)){
-  print(i)
+  #print(i)
   total <- sum(cjobs[i:(i+3),"count"])
   for(j in 0:3){
     cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
   }
 }
 
-ggplot()+
+a <- ggplot()+
   geom_bar(data=cjobs, aes(x=employer, y=percentage, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+
   theme_krementz()
+
+ggsave(a, file="~/unpaid_technicians/figure3_new_data_by_employer.png")
+
 ```
+
+
+![](figure3_new_data_by_employer.png) 
 
 As of November 2015 we are now keeping track of which job board these data come from as well. 
 
@@ -124,15 +140,20 @@ cjobs <- cast(mjobs, job_board + type ~ variable, sum, na.rm=TRUE)
 cjobs$percentage <- NA
 
 for(i in seq(1,nrow(cjobs)-3,by=4)){
-  print(i)
+  #print(i)
   total <- sum(cjobs[i:(i+3),"count"])
   for(j in 0:3){
     cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
   }
 }
 
-ggplot()+
+a <- ggplot()+
   geom_bar(data=cjobs, aes(x=job_board, y=percentage, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+
   theme_krementz()
+
+ggsave(a, file="~/unpaid_technicians/figure4_new_data_by_jobboard.png", width=9)
 ```
+
+
+![](figure4_new_data_by_jobboard.png) 
