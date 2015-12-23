@@ -8,7 +8,7 @@ To see a summary of our data, updated monthly see [here](https://github.com/auri
 ## Job Boards we are currently have people summarizing (though their data may not be included here yet)
 
 [Texas A&M](http://wfscjobs.tamu.edu/job-board/) (last updated August 2015)  
-[BirdJobs](https://www.osnabirds.org/Jobs.aspx) (last updated December 3, 2015)  
+[BirdJobs](https://www.osnabirds.org/Jobs.aspx) (last updated December 22, 2015)  
 [Conservation Job Board](http://www.conservationjobboard.com/) (last updated December 3, 2015)  
 [The Wildlife Society Job Board](http://careers.wildlife.org/home/index.cfm?site_id=8764) (last updated December 3, 2015)   
 [Ecolog](https://listserv.umd.edu/archives/ecolog-l.html) (not yet included, but being collected now)  
