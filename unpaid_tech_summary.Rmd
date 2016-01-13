@@ -19,7 +19,7 @@ Job boards:
 
 If you would like to contribute data from another job board just let Alex or Auriel know. 
 
-```{r, results='hide'}
+```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
 # Install the `auriel` package
 library(devtools)
 install_github("aurielfournier/rel")
@@ -27,7 +27,7 @@ install_github("aurielfournier/rel")
 
 # original data from editorial
 
-```{r, results='hide'}
+```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(auriel)
 library(reshape)
@@ -40,7 +40,7 @@ jobs <- jobs[is.na(jobs$job_board),]
 col4 <- brewer.pal(4,"Dark2")
 
 a <- ggplot()+
-  geom_bar(data=jobs, aes(x=month, y=percentage, fill=type), stat="identity")+
+  geom_bar(data=jobs, aes(x=month, y=percent, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+theme_krementz()
 
 ggsave(a, file="./figure1_editorial_data.png", width=9)
@@ -63,7 +63,7 @@ unclear = it is not clear from the job positing if the job is paid or unpaid
 This summary includes only season technician level positions. Not full time permanent jobs, or jobs requiring a graduate level degree. Though we have seen some of those being unpaid as well. 
 
 
-```{r, results="hide"}
+```{r, results="hide", echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(auriel)
 library(reshape)
@@ -75,18 +75,18 @@ cjobs <- cast(mjobs, month + type ~ variable, sum, na.rm=TRUE)
 
 months <- unique(cjobs$month)
 
-cjobs$percentage <- NA
+cjobs$percent <- NA
 
 for(i in seq(1,nrow(cjobs)-3,by=4)){
   #print(i)
   total <- sum(cjobs[i:(i+3),"count"])
   for(j in 0:3){
-    cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
+    cjobs[(i+j),"percent"] <- (cjobs[(i+j),"count"]/total)*100
   }
 }
 
 a <- ggplot()+
-  geom_bar(data=cjobs, aes(x=month, y=percentage, fill=type), stat="identity")+
+  geom_bar(data=cjobs, aes(x=month, y=percent, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+
   theme_krementz()
 
@@ -99,7 +99,7 @@ ggsave(a, file="./figure2_new_by_month.png", width=9)
 
 starting in November 2015 we began to break down our summary by employer as well. 
 
-```{r}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(auriel)
 library(reshape)
@@ -111,18 +111,18 @@ mjobs <- melt(jobs[,c("employer","count","type")], id=c("employer","type"))
 
 cjobs <- cast(mjobs, employer + type ~ variable, sum, na.rm=TRUE)
 
-cjobs$percentage <- NA
+cjobs$percent <- NA
 
 for(i in seq(1,nrow(cjobs)-3,by=4)){
   #print(i)
   total <- sum(cjobs[i:(i+3),"count"])
   for(j in 0:3){
-    cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
+    cjobs[(i+j),"percent"] <- (cjobs[(i+j),"count"]/total)*100
   }
 }
 
 a <- ggplot()+
-  geom_bar(data=cjobs, aes(x=employer, y=percentage, fill=type), stat="identity")+
+  geom_bar(data=cjobs, aes(x=employer, y=percent, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+
   theme_krementz()
 
@@ -135,7 +135,7 @@ ggsave(a, file="./figure3_new_data_by_employer.png", width=9)
 
 As of November 2015 we are now keeping track of which job board these data come from as well. 
 
-```{r}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(auriel) #Auriel's personal R package https://github.com/aurielfournier/rel
 library(reshape)
@@ -147,18 +147,18 @@ mjobs <- melt(jobs[,c("job_board","count","type")], id=c("job_board","type"))
 
 cjobs <- cast(mjobs, job_board + type ~ variable, sum, na.rm=TRUE)
 
-cjobs$percentage <- NA
+cjobs$percent <- NA
 
 for(i in seq(1,nrow(cjobs)-3,by=4)){
   #print(i)
   total <- sum(cjobs[i:(i+3),"count"])
   for(j in 0:3){
-    cjobs[(i+j),"percentage"] <- (cjobs[(i+j),"count"]/total)*100
+    cjobs[(i+j),"percent"] <- (cjobs[(i+j),"count"]/total)*100
   }
 }
 
 a <- ggplot()+
-  geom_bar(data=cjobs, aes(x=job_board, y=percentage, fill=type), stat="identity")+
+  geom_bar(data=cjobs, aes(x=job_board, y=percent, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+
   theme_krementz()
 

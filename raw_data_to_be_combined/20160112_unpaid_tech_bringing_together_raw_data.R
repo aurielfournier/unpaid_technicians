@@ -1,0 +1,34 @@
+# stitching together all of the differnet files from all the contributors
+
+fl <- list.files("C:/Users/avand/Documents/unpaid_technicians/raw_data_to_be_combined/", pattern=".csv")
+
+
+unpaid <- list()
+
+unpaid[[1]] <- read.csv("C:/Users/avand/Documents/unpaid_technicians/ongoing_collection.csv")[,1:6]
+
+for(i in 1:length(fl)){
+  ii <- i + 1
+  unpaid[[ii]] <- read.csv(paste0("C:/Users/avand/Documents/unpaid_technicians/raw_data_to_be_combined/",fl[i]))
+}
+
+
+un <- do.call(rbind, unpaid)
+
+
+un$percent <- NA
+
+firsts <- seq(1,nrow(un),4)
+
+for(i in firsts){
+  tot <- sum(un[i:(i+3),"count"])
+  un[i,"percent"] <- un[i,"count"]/tot
+  un[(i+1),"percent"] <- un[(i+1),"count"]/tot
+  un[(i+2),"percent"] <- un[(i+2),"count"]/tot
+  un[(i+3),"percent"] <- un[(i+3),"count"]/tot
+}
+
+un[is.na(un$percent),]$percent <- 0
+
+
+write.csv(un, "C:/Users/avand/Documents/unpaid_technicians/ongoing_collection.csv")
