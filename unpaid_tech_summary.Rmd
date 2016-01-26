@@ -33,14 +33,14 @@ library(auriel)
 library(reshape)
 library(RColorBrewer)
 
-jobs <- read.csv("./ongoing_collection.csv")
-
-jobs <- jobs[is.na(jobs$job_board),]
+jobs <- read.csv("./original_data.csv")
 
 col4 <- brewer.pal(4,"Dark2")
 
+
+
 a <- ggplot()+
-  geom_bar(data=jobs, aes(x=month, y=percent, fill=type), stat="identity")+
+  geom_bar(data=jobs, aes(x=1,y=precentage, fill=type), stat="identity")+
   scale_fill_manual(values=col4)+theme_krementz()
 
 ggsave(a, file="./figure1_editorial_data.png", width=9)

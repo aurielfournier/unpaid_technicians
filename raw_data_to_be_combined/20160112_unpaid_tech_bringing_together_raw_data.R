@@ -31,4 +31,4 @@ for(i in firsts){
 un[is.na(un$percent),]$percent <- 0
 
 
-write.csv(un, "C:/Users/avand/Documents/unpaid_technicians/ongoing_collection.csv")
+write.csv(un, "C:/Users/avand/Documents/unpaid_technicians/ongoing_collection.csv", row.names=FALSE)
