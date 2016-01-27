@@ -3,7 +3,7 @@ output: html_document
 ---
 
 This is a basic visualization and summary of the data collected by Dr. Alex Bond and Auriel Fournier. 
-As of December 13, 2015 this repo and file are still being constructed. Our end goal is to update this once monthly with summaries of technician positions from the following job boards to look at trends over time and help raise awareness about the frequency of these positions. 
+Our end goal is to update this once monthly with summaries of technician positions from the following job boards to look at trends over time and help raise awareness about the frequency of these positions. 
 
 Job boards:
 
@@ -17,7 +17,7 @@ Job boards:
 [Iowa State NREM](http://www.nrem.iastate.edu/employment/) (not yet included but being collected now)
 [Society of Conservation Biology](http://careers.conbio.org/jobs/) (December 2015)
 
-If you would like to contribute data from another job board just let Alex or Auriel know. 
+# If you would like to contribute data from another job board just let Alex or Auriel know. 
 
 ```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
 # Install the `auriel` package
