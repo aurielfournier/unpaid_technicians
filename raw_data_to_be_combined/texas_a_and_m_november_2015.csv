@@ -1,0 +1,17 @@
+type,job_board,employer,month,year,count
+paid,texasAM,gov,11,2015,31
+unpaid,texasAM,gov,11,2015,6
+pay_to_work,texasAM,gov,11,2015,0
+unclear,texasAM,gov,11,2015,1
+paid,texasAM,academic,11,2015,18
+unpaid,texasAM,academic,11,2015,1
+pay_to_work,texasAM,academic,11,2015,0
+unclear,texasAM,academic,11,2015,0
+paid,texasAM,nonprofit,11,2015,20
+unpaid,texasAM,nonprofit,11,2015,11
+pay_to_work,texasAM,nonprofit,11,2015,11
+unclear,texasAM,nonprofit,11,2015,3
+paid,texasAM,other,11,2015,11
+unpaid,texasAM,other,11,2015,1
+pay_to_work,texasAM,other,11,2015,0
+unclear,texasAM,other,11,2015,0

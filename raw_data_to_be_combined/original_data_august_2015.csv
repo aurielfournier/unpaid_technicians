@@ -1,0 +1,5 @@
+type,job_board,employer,month,year,count
+paid,NA,NA,8,2015,52
+unpaid,NA,NA,8,2015,28
+pay_to_work,NA,NA,8,2015,8
+unclear,NA,NA,8,2015,8

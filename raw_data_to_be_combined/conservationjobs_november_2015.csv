@@ -1,0 +1,17 @@
+type,job_board,employer,month,year,count
+paid,conservationjobboard,gov,11,2015,5
+unpaid,conservationjobboard,gov,11,2015,1
+pay_to_work,conservationjobboard,gov,11,2015,0
+unclear,conservationjobboard,gov,11,2015,0
+paid,conservationjobboard,academic,11,2015,6
+unpaid,conservationjobboard,academic,11,2015,0
+pay_to_work,conservationjobboard,academic,11,2015,0
+unclear,conservationjobboard,academic,11,2015,0
+paid,conservationjobboard,nonprofit,11,2015,15
+unpaid,conservationjobboard,nonprofit,11,2015,0
+pay_to_work,conservationjobboard,nonprofit,11,2015,1
+unclear,conservationjobboard,nonprofit,11,2015,0
+paid,conservationjobboard,other,11,2015,0
+unpaid,conservationjobboard,other,11,2015,0
+pay_to_work,conservationjobboard,other,11,2015,0
+unclear,conservationjobboard,other,11,2015,0

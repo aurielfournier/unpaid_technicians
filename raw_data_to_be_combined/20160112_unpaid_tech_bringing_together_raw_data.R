@@ -5,8 +5,6 @@ fl <- list.files("C:/Users/avand/Documents/unpaid_technicians/raw_data_to_be_com
 
 unpaid <- list()
 
-unpaid[[1]] <- read.csv("C:/Users/avand/Documents/unpaid_technicians/ongoing_collection.csv")[,1:6]
-
 for(i in 1:length(fl)){
   ii <- i + 1
   unpaid[[ii]] <- read.csv(paste0("C:/Users/avand/Documents/unpaid_technicians/raw_data_to_be_combined/",fl[i]))

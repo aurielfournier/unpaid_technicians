@@ -1,0 +1,17 @@
+type,job_board,employer,month,year,count
+paid,birdjobs,gov,1,2016,1
+unpaid,birdjobs,gov,1,2016,0
+pay_to_work,birdjobs,gov,1,2016,0
+unclear,birdjobs,gov,1,2016,0
+paid,birdjobs,academic,1,2016,14
+unpaid,birdjobs,academic,1,2016,3
+pay_to_work,birdjobs,academic,1,2016,0
+unclear,birdjobs,academic,1,2016,0
+paid,birdjobs,nonprofit,1,2016,9
+unpaid,birdjobs,nonprofit,1,2016,9
+pay_to_work,birdjobs,nonprofit,1,2016,1
+unclear,birdjobs,nonprofit,1,2016,1
+paid,birdjobs,other,1,2016,1
+unpaid,birdjobs,other,1,2016,1
+pay_to_work,birdjobs,other,1,2016,0
+unclear,birdjobs,other,1,2016,1
