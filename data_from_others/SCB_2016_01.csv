@@ -1,0 +1,17 @@
+type,job_board,employer,month,year,count
+paid,SCB,gov,Jan,2016,2
+unpaid,SCB,gov,Jan,2016,3
+pay_to_work,SCB,gov,Jan,2016,0
+unclear,SCB,gov,Jan,2016,0
+paid,SCB,academic,Jan,2016,0
+unpaid,SCB,academic,Jan,2016,3
+pay_to_work,SCB,academic,Jan,2016,0
+unclear,SCB,academic,Jan,2016,0
+paid,SCB,nonprofit,Jan,2016,12
+unpaid,SCB,nonprofit,Jan,2016,4
+pay_to_work,SCB,nonprofit,Jan,2016,1
+unclear,SCB,nonprofit,Jan,2016,0
+paid,SCB,other,Jan,2016,2
+unpaid,SCB,other,Jan,2016,0
+pay_to_work,SCB,other,Jan,2016,0
+unclear,SCB,other,Jan,2016,0
