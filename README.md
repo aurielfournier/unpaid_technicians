@@ -14,7 +14,7 @@ To see a summary of our data, updated monthly see [here](https://github.com/auri
 [Ecolog](https://listserv.umd.edu/archives/ecolog-l.html) (not yet included, but being collected now)  
 [Evoldir](http://life.mcmaster.ca/cgi-bin/my_wrap/brian/evoldir/Jobs/) (not yet included, but being collected now)  
 [Conservation Careers](http://www.conservation-careers.com/job/) (not yet included but being collected now)  
-[Iowa State NREM](http://www.nrem.iastate.edu/employment/) (not yet included but being collected now)
+[Iowa State NREM](http://www.nrem.iastate.edu/employment/) (not yet included but being collected now)  
 [Society of Conservation Biology](http://careers.conbio.org/jobs/) (last updated December 2015)
 
 ## Questions 
