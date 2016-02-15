@@ -15,7 +15,7 @@ Job boards:
 [Evoldir](http://life.mcmaster.ca/cgi-bin/my_wrap/brian/evoldir/Jobs/) (not yet included, but being collected now)  
 [Conservation Careers](http://www.conservation-careers.com/job/) (not yet included but being collected now)  
 [Iowa State NREM](http://www.nrem.iastate.edu/employment/) (not yet included but being collected now)
-[Society of Conservation Biology](http://careers.conbio.org/jobs/) (December 2015)
+[Society of Conservation Biology](http://careers.conbio.org/jobs/) (January 2015)
 
 # If you would like to contribute data from another job board just let Alex or Auriel know. 
 
