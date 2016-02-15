@@ -28,5 +28,6 @@ for(i in firsts){
 
 un[is.na(un$percent),]$percent <- 0
 
+un[un$month=="Jan",]$month <- 1
 
 write.csv(un, "C:/Users/avand/Documents/unpaid_technicians/ongoing_collection.csv", row.names=FALSE)
