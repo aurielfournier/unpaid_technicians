@@ -13,7 +13,7 @@ main <- function(page = NULL){
   if(is.null(page)){
     url <- "http://wfscjobs.tamu.edu/job-board/"
   } else {
-    url <- paste0("http://wfscjobs.tamu.edu/job-board/page/", offset)
+    url <- paste0("http://wfscjobs.tamu.edu/job-board/page/", page)
   }
 
   # Retrieve the individual listings
@@ -59,3 +59,24 @@ main <- function(page = NULL){
 
   return(cbind(index, listing_data))
 }
+
+
+main1 <- main(page=1)
+main2 <- main(page=2)
+main3 <- main(page=3)
+main4 <- main(page=4)
+main5 <- main(page=5)
+
+unpaid <- rbind(main1, main2, main3, main4, main5)
+
+positions_we_care_about <- c("Temporary/Seasonal Positions","Volunteer Openings","Internships","Internships, Undergraduate Assistantships","Training")
+
+unpaid <- unpaid[unpaid$position_type %in% positions_we_care_about,]
+
+unpmarch <- unpaid %>% filter(date_posted >= as.POSIXct("2016-03-01 UTC"), date_posted <= as.POSIXct("2016-03-31 UTC"))
+
+unpfeb <- unpaid %>% filter(date_posted >= as.POSIXct("2016-02-01 UTC"), date_posted <= as.POSIXct("2016-02-29 UTC"))
+
+
+write.csv(unpmarch, "~/unpaid_technicians/texas_a_m/march_2016.csv")
+write.csv(unpfeb, "~/unpaid_technicians/texas_a_m/feb_2016.csv")
